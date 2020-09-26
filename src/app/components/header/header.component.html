@@ -1,0 +1,27 @@
+<div class="pos-f-t">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+            <h4 class="text-white">Collapsed content</h4>
+            <span class="text-muted">Toggleable via the navbar brand.</span>
+        </div>
+    </div>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <button class="navbar-toggler" type="button" (click)="openNav()" aria-controls="mySidenav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <h2 style="margin-left: 900px;">Welcome {{LoggedUser.firstName}} {{LoggedUser.lastName}}</h2>
+        <img src={{LoggedUser.picture}} style="height: 43px;
+      width: 41px;" alt="avatar" class="avatar" (click)="onProfileclick()">
+
+
+    </nav>
+</div>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+    <a (click)="onDashboard()">Dashboard</a>
+    <a (click)="onProducts()">Products</a>
+    <a (click)="onUsers()">Users</a>
+    <a (click)="onOrdered()">Ordered Item</a>
+    <a (click)="onAdminLogout()">Logout</a>
+</div>

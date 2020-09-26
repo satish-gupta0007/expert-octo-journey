@@ -1,0 +1,19 @@
+.example-card {
+    max-width: 500px;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+mat-card-title {
+    font-size: xx-large;
+    font-family: cursive;
+}
+
+.geeks:hover img {
+    transform: scale(1.5);
+    margin-top: 50px;
+    border-radius: 20%;
+}

@@ -1,0 +1,54 @@
+<h2 style="text-align: center;">Add Products</h2>
+<form [formGroup]="addForm">
+    <div>
+        <button type="button" mat-raised-button color="warn" (click)="fileInput.click()">
+      <mat-icon>file_upload</mat-icon>Upload product images</button>
+        <input hidden (change)="fileChanged($event)" #fileInput type="file" id="file" formControlName="picture">
+        <p class="error-text" *ngIf="submitted && addForm.controls?.picture?.errors?.required">*Product image is Required</p>
+
+    </div>
+
+    <div *ngIf="show">
+        <img src={{Picture}} class="avatar">
+    </div>
+    <br>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Select Categories</mat-label>
+            <mat-select matNativeControl formControlName="category">
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <p class="error-text" *ngIf="submitted && addForm.controls?.category?.errors?.required">*Category is Required</p>
+
+    </div>
+    <div>
+        <mat-form-field>
+            <input type="text" matInput placeholder="Name" formControlName="name">
+        </mat-form-field>
+        <p class="error-text" *ngIf="submitted && addForm.controls?.name?.errors?.required">*Name is Required</p>
+    </div>
+    <div>
+        <mat-form-field>
+            <input type="text" matInput placeholder="Description" formControlName="description">
+        </mat-form-field>
+        <p class="error-text" *ngIf="submitted && addForm.controls?.description?.errors?.required">*Description is Required</p>
+
+    </div>
+    <div>
+        <mat-form-field>
+            <input type="text" matInput placeholder="Price" formControlName="price">
+        </mat-form-field>
+        <p class="error-text" *ngIf="submitted && addForm.controls?.price?.errors?.required">*Price is Required</p>
+
+    </div>
+
+    <div class="button" style="display: block;">
+
+        <button mat-raised-button color="primary" (click)="AddProducts(addForm.value)">Add</button>
+
+    </div>
+
+</form>

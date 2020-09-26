@@ -1,0 +1,54 @@
+<app-header>
+</app-header>
+<div *ngIf="ProductList">
+    <div class="card" style="width: 25rem;margin: 41px 409px;">
+        <div class="geeks">
+
+            <img class="card-img-top" src={{ProductList.picture}}>
+        </div>
+
+        <div class="card-body">
+            <h2 class="card-title">{{ProductList.name}}</h2>
+            <div class="price text-success" style="margin-top: -49px;
+        text-align: right;">
+                <h5 class="mt-4">{{ProductList.price}} ₹</h5>
+            </div>
+            <p class="card-text">{{ProductList.description}}</p>
+
+            <button class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#exampleModalCenter">
+            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Checkout</button>
+
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLongTitle">Payment Mode</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="CheckoutForm">
+                        <label> <b> Choose Payment Mode :</b></label>
+                        <br>
+                        <input type="radio" value="cod" formControlName="payment"> Cod
+                        <input type="radio" value="online" formControlName="payment"> Online
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="onCheckout(ProductList,CheckoutForm.value.payment)">Proceed</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="!ProductList">
+    <h1 style="margin: 245px 261px;text-align: center;">No Products found</h1>
+</div>
+
+<router-outlet></router-outlet>

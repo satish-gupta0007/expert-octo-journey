@@ -1,0 +1,38 @@
+mat-sidenav-content {
+    overflow: hidden;
+    display: contents;
+}
+
+mat-drawer-container {
+    position: initial;
+}
+
+.example-card {
+    height: 151px;
+    margin: 10px;
+    background-color: beige;
+    cursor: pointer;
+}
+
+.example-header-image {
+    background-size: cover;
+    margin-top: 18px;
+    height: 58px;
+    width: 59px;
+}
+
+.mat-spacer {
+    flex: 1 1 auto;
+}
+
+.avatar1 {
+    vertical-align: middle;
+    width: 133px;
+    height: 125px;
+    border-radius: 50%;
+}
+
+.render-image {
+    height: 393px;
+    width: 100%!important;
+}

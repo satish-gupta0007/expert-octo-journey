@@ -1,0 +1,35 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="content" style="overflow: hidden;" *ngIf="Filtereddata.length > 0 && !render">
+        <div>
+            <div class="row">
+                <div class="col-12" *ngFor="let list of Filtereddata">
+                    <mat-card class="example-card" style="    margin-left: 180px;
+                    width: 715px;">
+                        <mat-card-header>
+                            <div>
+                                <img src={{list.picture}} class="avatar1">
+                            </div>
+                            <div style="margin-left: 150px;">
+                                <mat-card-title>{{list.name}}</mat-card-title>
+                                <mat-card-subtitle>{{list.description}}</mat-card-subtitle>
+                                <mat-card-subtitle>{{list.price}} ₹</mat-card-subtitle>
+                                <button class="btn btn-primary" style="position: absolute;
+                                top: 0;
+                                right: 0;
+                                margin: 56px;" (click)="Invoice(list)">View Invoice</button>
+                            </div>
+                        </mat-card-header>
+                    </mat-card>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="Filtereddata?.length==0 && !render">
+        <h1 style="margin: 245px 261px;text-align: center;">No Orders found</h1>
+    </div>
+</div>
+<div class="loader text-center" *ngIf="render"></div>

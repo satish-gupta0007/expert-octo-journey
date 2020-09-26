@@ -1,0 +1,42 @@
+<h2 style="text-align: center;">Update Products</h2>
+<form [formGroup]="updateForm">
+  <div>
+    <button type="button" mat-raised-button color="warn" (click)="fileInput.click()">
+      <mat-icon>file_upload</mat-icon>
+      Change Product images</button>
+    <input hidden (change)="fileChanged($event)" #fileInput type="file" id="file" formControlName="picture">
+  </div>
+  <div *ngIf="!!show">
+    <img src={{Picture}}  class="avatar">
+  </div>
+  <div *ngIf="!show">
+    <img src={{test.picture}}  class="avatar">
+  </div>
+    <div>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Name" formControlName="name" >
+        </mat-form-field>
+        <p class="error-text" *ngIf="submitted && updateForm.controls?.name?.errors?.required">*Name is Required</p>
+    </div>
+      <div>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Description" formControlName="description">
+        </mat-form-field>
+        <p class="error-text" *ngIf="submitted && updateForm.controls?.description?.errors?.required">*Description is Required</p>
+
+    </div>
+      <div>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Price" formControlName="price" >
+        </mat-form-field>
+        <p class="error-text" *ngIf="submitted && updateForm.controls?.price?.errors?.required">*Price is Required</p>
+
+    </div>
+
+  <div class="button" style="display: block;">
+
+    <button mat-raised-button color="primary" (click)="AddProducts(updateForm.value)">Update</button>
+  
+  </div>
+
+</form>

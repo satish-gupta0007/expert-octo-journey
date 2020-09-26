@@ -1,0 +1,61 @@
+<h2 style="text-align: center;">Add Users</h2>
+<form [formGroup]="addForm">
+    <div>
+        <button type="button" mat-raised-button color="warn" (click)="fileInput.click()">
+      <mat-icon>file_upload</mat-icon>
+      Upload users image</button>
+        <input hidden (change)="fileChanged($event)" #fileInput type="file" id="file" formControlName="picture">
+        <p class="error-text" *ngIf="submitted && addForm.controls?.picture?.errors?.required">*profile picture is Required</p>
+
+    </div>
+    <div *ngIf="show">
+        <img src={{Picture}} class="avatar">
+    </div>
+    <div>
+        <mat-form-field>
+            <input type="text" matInput placeholder="Firstname" formControlName="firstName">
+        </mat-form-field>
+        <p class="error-text" *ngIf="submitted && addForm.controls?.firstName?.errors?.required">*Firstname is Required</p>
+    </div>
+    <div>
+        <mat-form-field>
+            <input type="text" matInput placeholder="Lastname" formControlName="lastName">
+        </mat-form-field>
+        <p class="error-text" *ngIf="submitted && addForm.controls?.lastName?.errors?.required">*Lastname is Required</p>
+
+    </div>
+    <div>
+        <mat-form-field>
+            <input type="text" matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+        <p class="error-text" *ngIf="submitted && addForm.controls?.email?.errors?.required">*Email is Required</p>
+
+    </div>
+    <div>
+        <mat-form-field>
+            <input type="text" matInput placeholder="Username" formControlName="username">
+        </mat-form-field>
+        <p class="error-text" *ngIf="submitted && addForm.controls?.username?.errors?.required">*Username is Required</p>
+
+    </div>
+    <div>
+        <mat-form-field>
+            <input type="password" matInput placeholder="Password" formControlName="password">
+        </mat-form-field>
+        <p class="error-text" *ngIf="submitted && addForm.controls?.password?.errors?.required">*Password is Required</p>
+        <p class="error-text" *ngIf="submitted && addForm.controls?.password?.errors?.minlength">*Password must be 6 character</p>
+    </div>
+    <div>
+        <mat-form-field hidden>
+            <input type="text" matInput placeholder="usertype" formControlName="usertype">
+        </mat-form-field>
+
+    </div>
+
+    <div class="button" style="display: block;">
+
+        <button mat-raised-button color="primary" (click)="AddProducts(addForm.value)">Add</button>
+
+    </div>
+
+</form>

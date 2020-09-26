@@ -1,0 +1,39 @@
+<app-header></app-header>
+<div id="main">
+    <div class="container" id="totoggle">
+        <div style="text-align: center;">
+            <div class="card" style="width: 32rem;
+    margin: 16px 284px;">
+                <div class="card-body">
+                    <h3 class="card-title" style="text-align: center;">List</h3>
+                    <hr>
+                    <div class="row">
+                        <div class="col">
+                            <b class="card-subtitle mb-2 text-muted" *ngIf="UserList==null">Total User: 0</b>
+
+                            <b class="card-subtitle mb-2 text-muted" *ngIf="!!UserList">Total Users:
+                                {{UserList.length}}</b>
+                            <button (click)="convertUserList()" *ngIf="!!UserList" class="btn btn-primary   pull-center" style="float: center;">Download as
+                                pdf</button>
+                        </div>
+                        <div class="col">
+                            <b class="card-subtitle mb-2 text-muted" *ngIf="AdminList==null">Total Admin: 0</b>
+                            <b class="card-subtitle mb-2 text-muted" *ngIf="!!AdminList">Total Admins:
+                                {{AdminList.length}}</b>
+                            <button (click)="convertAdminList()" *ngIf="!!AdminList" class="btn btn-primary  pull-center" style="float: center;">Download
+                                as
+                                pdf</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div style="display: block" id="chartd">
+            <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)" style="display: block;
+        height: 530px;
+        width: 1232px;"></canvas>
+        </div>
+    </div>
+</div>
